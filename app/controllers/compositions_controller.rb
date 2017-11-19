@@ -1,64 +1,41 @@
 class CompositionsController < ApplicationController
   before_action :set_composition, only: [:show, :edit, :update, :destroy]
 
-  # GET /compositions
-  # GET /compositions.json
   def index
     @compositions = Composition.all
   end
 
-  # GET /compositions/1
-  # GET /compositions/1.json
   def show
   end
 
-  # GET /compositions/new
   def new
     @composition = Composition.new
   end
 
-  # GET /compositions/1/edit
   def edit
   end
 
-  # POST /compositions
-  # POST /compositions.json
   def create
     @composition = Composition.new(composition_params)
 
-    respond_to do |format|
-      if @composition.save
-        format.html { redirect_to @composition, notice: 'Composition was successfully created.' }
-        format.json { render :show, status: :created, location: @composition }
-      else
-        format.html { render :new }
-        format.json { render json: @composition.errors, status: :unprocessable_entity }
-      end
+    if @composition.save
+      redirect_to @composition, notice: 'Composition was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /compositions/1
-  # PATCH/PUT /compositions/1.json
   def update
-    respond_to do |format|
-      if @composition.update(composition_params)
-        format.html { redirect_to @composition, notice: 'Composition was successfully updated.' }
-        format.json { render :show, status: :ok, location: @composition }
-      else
-        format.html { render :edit }
-        format.json { render json: @composition.errors, status: :unprocessable_entity }
-      end
+    if @composition.update(composition_params)
+      redirect_to @composition, notice: 'Composition was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /compositions/1
-  # DELETE /compositions/1.json
   def destroy
     @composition.destroy
-    respond_to do |format|
-      format.html { redirect_to compositions_url, notice: 'Composition was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to compositions_url, notice: 'Composition was successfully destroyed.'
   end
 
   private

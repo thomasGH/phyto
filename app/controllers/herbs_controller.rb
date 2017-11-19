@@ -1,64 +1,41 @@
 class HerbsController < ApplicationController
   before_action :set_herb, only: [:show, :edit, :update, :destroy]
 
-  # GET /herbs
-  # GET /herbs.json
   def index
     @herbs = Herb.all
   end
 
-  # GET /herbs/1
-  # GET /herbs/1.json
   def show
   end
 
-  # GET /herbs/new
   def new
     @herb = Herb.new
   end
 
-  # GET /herbs/1/edit
   def edit
   end
 
-  # POST /herbs
-  # POST /herbs.json
   def create
     @herb = Herb.new(herb_params)
 
-    respond_to do |format|
-      if @herb.save
-        format.html { redirect_to @herb, notice: 'Herb was successfully created.' }
-        format.json { render :show, status: :created, location: @herb }
-      else
-        format.html { render :new }
-        format.json { render json: @herb.errors, status: :unprocessable_entity }
-      end
+    if @herb.save
+      redirect_to @herb, notice: 'Herb was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /herbs/1
-  # PATCH/PUT /herbs/1.json
   def update
-    respond_to do |format|
-      if @herb.update(herb_params)
-        format.html { redirect_to @herb, notice: 'Herb was successfully updated.' }
-        format.json { render :show, status: :ok, location: @herb }
-      else
-        format.html { render :edit }
-        format.json { render json: @herb.errors, status: :unprocessable_entity }
-      end
+    if @herb.update(herb_params)
+      redirect_to @herb, notice: 'Herb was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /herbs/1
-  # DELETE /herbs/1.json
   def destroy
     @herb.destroy
-    respond_to do |format|
-      format.html { redirect_to herbs_url, notice: 'Herb was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to herbs_url, notice: 'Herb was successfully destroyed.'
   end
 
   private

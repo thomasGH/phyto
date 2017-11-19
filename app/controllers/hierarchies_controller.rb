@@ -1,64 +1,41 @@
 class HierarchiesController < ApplicationController
   before_action :set_hierarchy, only: [:show, :edit, :update, :destroy]
 
-  # GET /hierarchies
-  # GET /hierarchies.json
   def index
     @hierarchies = Hierarchy.all
   end
 
-  # GET /hierarchies/1
-  # GET /hierarchies/1.json
   def show
   end
 
-  # GET /hierarchies/new
   def new
     @hierarchy = Hierarchy.new
   end
 
-  # GET /hierarchies/1/edit
   def edit
   end
 
-  # POST /hierarchies
-  # POST /hierarchies.json
   def create
     @hierarchy = Hierarchy.new(hierarchy_params)
 
-    respond_to do |format|
-      if @hierarchy.save
-        format.html { redirect_to @hierarchy, notice: 'Hierarchy was successfully created.' }
-        format.json { render :show, status: :created, location: @hierarchy }
-      else
-        format.html { render :new }
-        format.json { render json: @hierarchy.errors, status: :unprocessable_entity }
-      end
+    if @hierarchy.save
+      redirect_to @hierarchy, notice: 'Hierarchy was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /hierarchies/1
-  # PATCH/PUT /hierarchies/1.json
   def update
-    respond_to do |format|
-      if @hierarchy.update(hierarchy_params)
-        format.html { redirect_to @hierarchy, notice: 'Hierarchy was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hierarchy }
-      else
-        format.html { render :edit }
-        format.json { render json: @hierarchy.errors, status: :unprocessable_entity }
-      end
+    if @hierarchy.update(hierarchy_params)
+      redirect_to @hierarchy, notice: 'Hierarchy was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /hierarchies/1
-  # DELETE /hierarchies/1.json
   def destroy
     @hierarchy.destroy
-    respond_to do |format|
-      format.html { redirect_to hierarchies_url, notice: 'Hierarchy was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to hierarchies_url, notice: 'Hierarchy was successfully destroyed.'
   end
 
   private

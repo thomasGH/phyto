@@ -28,6 +28,10 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
     <%= f.label :activity_id %><br>
     <%= f.collection_select :activity_id, Activity.all, :id, :level %>
   </div>

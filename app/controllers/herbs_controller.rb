@@ -46,6 +46,6 @@ class HerbsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def herb_params
-      params.require(:herb).permit(:name, :latin_name, :popular_name, :description, :location, :activity_id, :classification_id, effect_ids: [])
+      params.require(:herb).permit(:name, :latin_name, :popular_name, :description, :location, :activity_id, classification_ids: [], effect_ids: [])
     end
 end

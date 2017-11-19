@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119115332) do
+ActiveRecord::Schema.define(version: 20171119124152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20171119115332) do
 
   add_index "classifications", ["classification_id"], name: "index_classifications_on_classification_id", using: :btree
   add_index "classifications", ["hierarchy_id"], name: "index_classifications_on_hierarchy_id", using: :btree
+
+  create_table "classifications_herbs", force: :cascade do |t|
+    t.integer  "classification_id"
+    t.integer  "herb_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "classifications_herbs", ["classification_id"], name: "index_classifications_herbs_on_classification_id", using: :btree
+  add_index "classifications_herbs", ["herb_id"], name: "index_classifications_herbs_on_herb_id", using: :btree
 
   create_table "compositions", force: :cascade do |t|
     t.string   "number"
@@ -66,14 +76,12 @@ ActiveRecord::Schema.define(version: 20171119115332) do
     t.string   "popular_name"
     t.text     "description"
     t.integer  "activity_id"
-    t.integer  "classification_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "location"
   end
 
   add_index "herbs", ["activity_id"], name: "index_herbs_on_activity_id", using: :btree
-  add_index "herbs", ["classification_id"], name: "index_herbs_on_classification_id", using: :btree
 
   create_table "herbs_compositions", force: :cascade do |t|
     t.integer  "herb_id"
@@ -94,10 +102,11 @@ ActiveRecord::Schema.define(version: 20171119115332) do
 
   add_foreign_key "classifications", "classifications"
   add_foreign_key "classifications", "hierarchies"
+  add_foreign_key "classifications_herbs", "classifications"
+  add_foreign_key "classifications_herbs", "herbs"
   add_foreign_key "effects_herbs", "effects"
   add_foreign_key "effects_herbs", "herbs"
   add_foreign_key "herbs", "activities"
-  add_foreign_key "herbs", "classifications"
   add_foreign_key "herbs_compositions", "compositions"
   add_foreign_key "herbs_compositions", "herbs"
 end

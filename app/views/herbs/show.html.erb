@@ -32,7 +32,7 @@
 
 <p>
   <strong>Classification:</strong>
-  <%= @herb.classification.name %>
+  <%= @herb.classifications.map { |item| item.name } %>
 </p>
 
 <p>

@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :classification_id %><br>
-    <%= f.collection_select :classification_id, Classification.all, :id, :name %>
+    <%= f.collection_select :classification_ids, Classification.all, :id, :name, {}, { multiple: true, size: "10" } %>
   </div>
   <div class="field">
     <%= f.label :effects %><br>

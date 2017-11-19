@@ -27,12 +27,17 @@
 
 <p>
   <strong>Activity:</strong>
-  <%= @herb.activity %>
+  <%= @herb.activity.level %>
 </p>
 
 <p>
   <strong>Classification:</strong>
-  <%= @herb.classification %>
+  <%= @herb.classification.name %>
+</p>
+
+<p>
+  <strong>Effect:</strong>
+  <%= @herb.effects.map { |item| item.name } %>
 </p>
 
 <%= link_to 'Edit', edit_herb_path(@herb) %> |

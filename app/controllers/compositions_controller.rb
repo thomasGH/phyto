@@ -46,6 +46,6 @@ class CompositionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def composition_params
-      params.require(:composition).permit(:number, :name, :description)
+      params.require(:composition).permit(:number, :name, :author, :description)
     end
 end

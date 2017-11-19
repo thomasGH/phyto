@@ -12,6 +12,7 @@
       <th>Location</th>
       <th>Activity</th>
       <th>Classification</th>
+      <th>Effect</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,8 +25,9 @@
         <td><%= herb.popular_name %></td>
         <td><%= herb.description %></td>
         <td><%= herb.location %></td>
-        <td><%= herb.activity %></td>
-        <td><%= herb.classification %></td>
+        <td><%= herb.activity.level %></td>
+        <td><%= herb.classification.name %></td>
+		<td><%= herb.effects.map { |item| item.name } %></td>
         <td><%= link_to 'Show', herb %></td>
         <td><%= link_to 'Edit', edit_herb_path(herb) %></td>
         <td><%= link_to 'Destroy', herb, method: :delete, data: { confirm: 'Are you sure?' } %></td>

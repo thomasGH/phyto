@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Activity.create(level: 'Нет')
+Activity.create(level: 'Не определено')
+Activity.create(level: 'Неизвестна')
+
+Classification.create(name: 'Корневой класс')

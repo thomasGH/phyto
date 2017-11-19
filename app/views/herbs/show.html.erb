@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @herb.name %>
+</p>
+
+<p>
+  <strong>Latin name:</strong>
+  <%= @herb.latin_name %>
+</p>
+
+<p>
+  <strong>Popular name:</strong>
+  <%= @herb.popular_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @herb.description %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @herb.activity %>
+</p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @herb.classification %>
+</p>
+
+<%= link_to 'Edit', edit_herb_path(@herb) %> |
+<%= link_to 'Back', herbs_path %>

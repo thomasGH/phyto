@@ -1,0 +1,45 @@
+<%= form_for(@herb) do |f| %>
+  <% if @herb.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@herb.errors.count, "error") %> prohibited this herb from being saved:</h2>
+
+      <ul>
+      <% @herb.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :latin_name %><br>
+    <%= f.text_field :latin_name %>
+  </div>
+  <div class="field">
+    <%= f.label :popular_name %><br>
+    <%= f.text_field :popular_name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :activity_id %><br>
+    <%= f.collection_select :activity_id, Activity.all, :id, :level %>
+  </div>
+  <div class="field">
+    <%= f.label :classification_id %><br>
+    <%= f.collection_select :classification_id, Classification.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :effects %><br>
+    <%= f.collection_select :effect_ids, Effect.all, :id, :name, {}, { multiple: true, size: "10" } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

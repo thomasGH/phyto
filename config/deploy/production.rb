@@ -31,8 +31,7 @@ server "77.37.166.106", user: "rails", roles: %w{app db web}, primary: true
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :rails_env, :production
-set :stage, :production
+
 
 # Custom SSH Options
 # ==================

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'add_part/:id', to: 'compositions#add_part', as: 'add_part'
   resources :compositions
   resources :herbs
   resources :classifications

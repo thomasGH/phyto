@@ -1,5 +1,5 @@
 class CompositionsController < ApplicationController
-  before_action :set_composition, only: [:show, :edit, :update, :destroy]
+  before_action :set_composition, only: [:show, :edit, :update, :destroy, :add_part]
 
   def index
     @compositions = Composition.all
@@ -38,6 +38,10 @@ class CompositionsController < ApplicationController
     redirect_to compositions_url, notice: 'Composition was successfully destroyed.'
   end
 
+  def add_part
+    @composition.herbs_compositions.build
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_composition
@@ -46,6 +50,6 @@ class CompositionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def composition_params
-      params.require(:composition).permit(:number, :name, :author, :description)
+      params.require(:composition).permit(:number, :name, :author, :description, herbs_compositions_attributes: [:id, :herb_id, :part, :_destroy])
     end
 end

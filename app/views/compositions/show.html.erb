@@ -19,5 +19,25 @@
   <%= @composition.description %>
 </p>
 
+<% unless @composition.herbs.empty? %>
+  <p>
+    <strong>Herbs:</strong>
+  </p>
+  <table class="table table-striped">
+    <head>
+      <tr><th>Name</th><th>Part</th></tr>
+    </head>
+    <tbody>
+    <% @composition.herbs_compositions.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.herb.name %></td>
+        <td><%= ingredient.part %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to 'Add/Edit Parts', add_part_path(@composition) %> |
 <%= link_to 'Edit', edit_composition_path(@composition) %> |
 <%= link_to 'Back', compositions_path %>

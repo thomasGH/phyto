@@ -1,0 +1,41 @@
+<%= form_for(@composition) do |f| %>
+  <% if @composition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@composition.errors.count, "error") %> prohibited this composition from being saved:</h2>
+
+      <ul>
+      <% @composition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Name:</strong>
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Herb</td><td>Part</td><td>Delete</td>
+      </tr>
+    </thead>
+    <tbody>
+    <%= f.fields_for :herbs_compositions do |ingredient| %>
+      <tr>
+        <td><%= ingredient.collection_select :herb_id, Herb.all, :id, :name %></td>
+        <td><%= ingredient.text_field :part %></td>
+        <td><%= ingredient.check_box :_destroy %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @composition %> |
+<%= link_to 'Back', compositions_path %>

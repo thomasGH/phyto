@@ -14,6 +14,7 @@
 
 dump.rdb
 config/database.yml
+config/deploy/production.rb
 config/private_pub.yml
 config/*.sphinx.conf
 config/ldap.yml

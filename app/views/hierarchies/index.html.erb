@@ -13,9 +13,9 @@
     <% @hierarchies.each do |hierarchy| %>
       <tr>
         <td><%= hierarchy.name %></td>
-        <td><%= link_to 'Show', hierarchy %></td>
-        <td><%= link_to 'Edit', edit_hierarchy_path(hierarchy) %></td>
-        <td><%= link_to 'Destroy', hierarchy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', hierarchy, class: 'fa fa-eye' %></td>
+        <td><%= link_to '', edit_hierarchy_path(hierarchy), class: 'fa fa-pencil' %></td>
+        <td><%= link_to '', hierarchy, method: :delete, class: 'fa fa-trash-o', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

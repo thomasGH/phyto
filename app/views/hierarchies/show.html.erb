@@ -4,5 +4,16 @@
   <%= @hierarchy.name %>
 </p>
 
+<p>
+  <strong>Classes:</strong>
+</p>
+
+<ul>
+<% @hierarchy.classifications.each do |klass| %>
+  <li><%= link_to klass.name, klass %></li>
+<% end %>
+</ul>
+
+
 <%= link_to 'Edit', edit_hierarchy_path(@hierarchy) %> |
 <%= link_to 'Back', hierarchies_path %>

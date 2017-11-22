@@ -2,7 +2,7 @@ class ClassificationsController < ApplicationController
   before_action :set_classification, only: [:show, :edit, :update, :destroy]
 
   def index
-    @classifications = Classification.all
+    @root_class = Classification.find(1)
   end
 
   def show

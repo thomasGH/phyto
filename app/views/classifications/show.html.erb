@@ -11,13 +11,24 @@
 
 <p>
   <strong>Hierarchy:</strong>
-  <%= @classification.hierarchy.name %>
+  <%= link_to @classification.hierarchy.name, @classification.hierarchy %>
 </p>
 
 <p>
-  <strong>Classification:</strong>
+  <strong>Superclass:</strong>
   <%= @classification.classification.name %>
 </p>
+
+<p>
+  <strong>Subclasses:</strong>
+</p>
+
+<ul>
+<% @classification.classifications.each do |klass| %>
+  <li><%= link_to klass.name, klass %></li>
+<% end %>
+</ul>
+
 
 <%= link_to 'Edit', edit_classification_path(@classification) %> |
 <%= link_to 'Back', classifications_path %>

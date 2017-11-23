@@ -17,7 +17,7 @@
     <% @compositions.each do |composition| %>
       <tr>
         <td><%= composition.number %></td>
-        <td><%= composition.name %></td>
+        <td><%= link_to composition.name, composition %></td>
         <td><%= composition.author %></td>
         <td><%= composition.description %></td>
         <td><%= link_to '', composition, class: 'fa fa-eye' %></td>

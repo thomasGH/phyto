@@ -20,7 +20,7 @@
   <tbody>
     <% @herbs.each do |herb| %>
       <tr>
-        <td><%= herb.name %></td>
+        <td><%= link_to herb.name, herb %></td>
         <td><%= herb.latin_name %></td>
         <td><%= herb.popular_name %></td>
         <td><%= herb.description %></td>

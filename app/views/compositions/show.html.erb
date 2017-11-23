@@ -1,28 +1,18 @@
+<h2 class="page-header"><%= @composition.name %></h2>
 
-<p>
-  <strong>Номер:</strong>
-  <%= @composition.number %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Номер:</dt>
+  <dd><%= @composition.number %></dd>
 
-<p>
-  <strong>Название:</strong>
-  <%= @composition.name %>
-</p>
+  <dt>Автор:</dt>
+  <dd><%= @composition.author %></dd>
 
-<p>
-  <strong>Автор:</strong>
-  <%= @composition.author %>
-</p>
-
-<p>
-  <strong>Описание:</strong>
-  <%= @composition.description %>
-</p>
+  <dt>Описание:</dt>
+  <dd><%= @composition.description %></dd>
 
 <% unless @composition.herbs.empty? %>
-  <p>
-    <strong>Состав:</strong>
-  </p>
+  <dt>Состав:</dt>
+  <dd>
   <table class="table table-striped">
     <head>
       <tr><th>Название</th><th>Объём</th></tr>
@@ -36,7 +26,9 @@
     <% end %>
     </tbody>
   </table>
+  </dd>
 <% end %>
+</dl>
 
 <%= link_to 'Add/Edit Parts', add_part_path(@composition) %> |
 <%= link_to 'Edit', edit_composition_path(@composition) %> |

@@ -1,18 +1,14 @@
-
-<p>
-  <strong>Название:</strong>
-  <%= @hierarchy.name %>
-</p>
+<h2 class="page-header"><%= @hierarchy.name %></h2>
 
 <p>
   <strong>Классы этой иерархии:</strong>
 </p>
 
-<ul>
+<dl class="dl-horizontal">
 <% @hierarchy.classifications.each do |klass| %>
-  <li><%= link_to klass.name, klass %></li>
+  <dd><%= link_to klass.name, klass %></dd>
 <% end %>
-</ul>
+</dl>
 
 
 <%= link_to 'Edit', edit_hierarchy_path(@hierarchy) %> |

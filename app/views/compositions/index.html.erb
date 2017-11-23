@@ -19,9 +19,9 @@
         <td><%= composition.name %></td>
         <td><%= composition.author %></td>
         <td><%= composition.description %></td>
-        <td><%= link_to 'Show', composition %></td>
-        <td><%= link_to 'Edit', edit_composition_path(composition) %></td>
-        <td><%= link_to 'Destroy', composition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', composition, class: 'fa fa-eye' %></td>
+        <td><%= link_to '', edit_composition_path(composition), class: 'fa fa-pencil' %></td>
+        <td><%= link_to '', composition, method: :delete, class: 'fa fa-trash-o', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

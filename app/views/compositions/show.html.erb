@@ -30,7 +30,7 @@
     <tbody>
     <% @composition.herbs_compositions.each do |ingredient| %>
       <tr>
-        <td><%= ingredient.herb.name %></td>
+        <td><%= link_to ingredient.herb.name, ingredient.herb %></td>
         <td><%= ingredient.part %></td>
       </tr>
     <% end %>

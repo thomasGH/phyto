@@ -15,9 +15,9 @@
       <tr>
         <td><%= effect.name %></td>
         <td><%= effect.description %></td>
-        <td><%= link_to 'Show', effect %></td>
-        <td><%= link_to 'Edit', edit_effect_path(effect) %></td>
-        <td><%= link_to 'Destroy', effect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', effect, class: 'fa fa-eye' %></td>
+        <td><%= link_to '', edit_effect_path(effect), class: 'fa fa-pencil' %></td>
+        <td><%= link_to '', effect, method: :delete, class: 'fa fa-trash-o', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

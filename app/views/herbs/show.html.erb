@@ -1,41 +1,41 @@
 
 <p>
-  <strong>Name:</strong>
+  <strong>Название:</strong>
   <%= @herb.name %>
 </p>
 
 <p>
-  <strong>Latin name:</strong>
+  <strong>Латинское название:</strong>
   <%= @herb.latin_name %>
 </p>
 
 <p>
-  <strong>Popular name:</strong>
+  <strong>Народное название:</strong>
   <%= @herb.popular_name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Описание:</strong>
   <%= @herb.description %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong>Произростание:</strong>
   <%= @herb.location %>
 </p>
 
 <p>
-  <strong>Activity:</strong>
+  <strong>Активность:</strong>
   <%= @herb.activity.level %>
 </p>
 
 <p>
-  <strong>Classification:</strong>
+  <strong>Классификация:</strong>
   <%= @herb.classifications.map { |item| item.name }.join(', ') %>
 </p>
 
 <p>
-  <strong>Effect:</strong>
+  <strong>Воздействие:</strong>
   <%= @herb.effects.map { |item| item.name }.join(', ') %>
 </p>
 

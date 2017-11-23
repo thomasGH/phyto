@@ -1,31 +1,31 @@
 
 <p>
-  <strong>Number:</strong>
+  <strong>Номер:</strong>
   <%= @composition.number %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Название:</strong>
   <%= @composition.name %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>Автор:</strong>
   <%= @composition.author %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Описание:</strong>
   <%= @composition.description %>
 </p>
 
 <% unless @composition.herbs.empty? %>
   <p>
-    <strong>Herbs:</strong>
+    <strong>Состав:</strong>
   </p>
   <table class="table table-striped">
     <head>
-      <tr><th>Name</th><th>Part</th></tr>
+      <tr><th>Название</th><th>Объём</th></tr>
     </head>
     <tbody>
     <% @composition.herbs_compositions.each do |ingredient| %>

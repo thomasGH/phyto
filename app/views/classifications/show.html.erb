@@ -1,26 +1,26 @@
 
 <p>
-  <strong>Name:</strong>
+  <strong>Имя:</strong>
   <%= @classification.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Описание:</strong>
   <%= @classification.description %>
 </p>
 
 <p>
-  <strong>Hierarchy:</strong>
+  <strong>Уровень иерархии:</strong>
   <%= link_to @classification.hierarchy.name, @classification.hierarchy %>
 </p>
 
 <p>
-  <strong>Superclass:</strong>
+  <strong>Суперкласс:</strong>
   <%= @classification.classification.name %>
 </p>
 
 <p>
-  <strong>Subclasses:</strong>
+  <strong>Подклассы:</strong>
 </p>
 
 <ul>

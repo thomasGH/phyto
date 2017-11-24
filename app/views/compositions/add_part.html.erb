@@ -1,45 +1,32 @@
-<%= form_for(@composition) do |f| %>
-  <% if @composition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@composition.errors.count, "error") %> prohibited this composition from being saved:</h2>
+<%= form_for @composition, html: { class: "form-horizontal" } do |f| %>
 
-      <ul>
-      <% @composition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= render 'common/errors', object: @composition %>
+
+  <dl class="dl-horizontal">
+    <dt>Номер:</dt>
+    <dd><%= @composition.number %></dd>
+
+    <dt>Название:</dt>
+    <dd><%= @composition.name %></dd>
+
+    <dt>Состав</dt>
+    <dd>
+      <table>
+        <%= f.fields_for :herbs_compositions do |ingredient| %>
+        <tr>
+          <td><%= ingredient.collection_select :herb_id, Herb.all, :id, :name, {}, { class: 'form-control' } %></td>
+          <td><%= ingredient.text_field :part, placeholder: 'Part', class: 'form-control' %></td>
+          <td><%= ingredient.check_box :_destroy %> Удалить из сбора</td>
+        </tr>
+        <% end %>
+      </table>
+    </dd>
+  </dl>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit class: 'btn btn-default' %>
     </div>
-  <% end %>
-
-  <p>
-    <strong>Номер:</strong>
-    <%= @composition.number %>
-  </p>
-
-  <p>
-    <strong>Название:</strong>
-    <%= @composition.name %>
-  </p>
-
-  <table>
-    <thead>
-      <tr>
-        <td>Трава</td><td>Объём</td><td>Удалить из сбора</td>
-      </tr>
-    </thead>
-    <tbody>
-    <%= f.fields_for :herbs_compositions do |ingredient| %>
-      <tr>
-        <td><%= ingredient.collection_select :herb_id, Herb.all, :id, :name %></td>
-        <td><%= ingredient.text_field :part %></td>
-        <td><%= ingredient.check_box :_destroy %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
 

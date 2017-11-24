@@ -1,15 +1,6 @@
 <%= form_for @effect, html: { class: "form-horizontal" } do |f| %>
-  <% if @effect.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@effect.errors.count, "error") %> prohibited this effect from being saved:</h2>
 
-      <ul>
-      <% @effect.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'common/errors', object: @effect %>
 
   <div class="form-group">
     <%= f.label 'Воздействие', class: 'col-sm-2 control-label' %>

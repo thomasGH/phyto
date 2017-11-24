@@ -1,15 +1,6 @@
 <%= form_for @hierarchy, html: { class: "form-horizontal" } do |f| %>
-  <% if @hierarchy.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@hierarchy.errors.count, "error") %> prohibited this hierarchy from being saved:</h2>
 
-      <ul>
-      <% @hierarchy.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'common/errors', object: @hierarchy %>
 
   <div class="form-group">
     <%= f.label 'Название', class: 'col-sm-2 control-label' %>

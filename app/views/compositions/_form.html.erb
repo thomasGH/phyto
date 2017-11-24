@@ -1,15 +1,6 @@
 <%= form_for @composition, html: { class: "form-horizontal" } do |f| %>
-  <% if @composition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@composition.errors.count, "error") %> prohibited this composition from being saved:</h2>
 
-      <ul>
-      <% @composition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'common/errors', object: @composition %>
 
   <div class="form-group">
     <%= f.label 'Номер', class: 'col-sm-2 control-label' %>

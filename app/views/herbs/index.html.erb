@@ -1,6 +1,6 @@
 <%= link_to 'New Herb', new_herb_path %>
 
-<h1>Список трав</h1>
+<h2 class="page-header">Список трав</h2>
 
 <table class="table table-striped">
   <thead>
@@ -27,7 +27,7 @@
         <td><%= herb.location %></td>
         <td><%= herb.activity.level %></td>
         <td><%= herb.classifications.map { |item| item.name }.join(', ') %></td>
-		<td><%= herb.effects.map { |item| item.name }.join(', ') %></td>
+        <td><%= herb.effects.map { |item| item.name }.join(', ') %></td>
         <td><%= link_to '', herb, class: 'fa fa-eye' %></td>
         <td><%= link_to '', edit_herb_path(herb), class: 'fa fa-pencil' %></td>
         <td><%= link_to '', herb, method: :delete, class: 'fa fa-trash-o', data: { confirm: 'Are you sure?' } %></td>

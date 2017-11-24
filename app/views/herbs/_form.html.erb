@@ -1,4 +1,4 @@
-<%= form_for(@herb) do |f| %>
+<%= form_for @herb, html: { class: "form-horizontal" } do |f| %>
   <% if @herb.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@herb.errors.count, "error") %> prohibited this herb from being saved:</h2>
@@ -11,39 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label 'Название', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :latin_name %><br>
-    <%= f.text_field :latin_name %>
+  <div class="form-group">
+    <%= f.label 'Латинское название', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :latin_name, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :popular_name %><br>
-    <%= f.text_field :popular_name %>
+  <div class="form-group">
+    <%= f.label 'Народное название', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :popular_name, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label 'Описание', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, class: 'form-control', rows: '7' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+  <div class="form-group">
+    <%= f.label 'Произростание', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :location, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :activity_id %><br>
-    <%= f.collection_select :activity_id, Activity.all, :id, :level %>
+  <div class="form-group">
+    <%= f.label 'Активность', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.collection_select :activity_id, Activity.all, :id, :level, {}, { class: 'form-control' } %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :classification_id %><br>
-    <%= f.collection_select :classification_ids, Classification.all, :id, :name, {}, { multiple: true, size: "10" } %>
+  <div class="form-group">
+    <%= f.label 'Классификация', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.collection_select :classification_ids, Classification.all, :id, :name, {}, { multiple: true, size: "7", class: 'form-control' } %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :effects %><br>
-    <%= f.collection_select :effect_ids, Effect.all, :id, :name, {}, { multiple: true, size: "10" } %>
+  <div class="form-group">
+    <%= f.label 'Воздействие', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.collection_select :effect_ids, Effect.all, :id, :name, {}, { multiple: true, size: "7", class: 'form-control' } %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit class: 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

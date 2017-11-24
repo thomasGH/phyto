@@ -1,6 +1,6 @@
 <%= link_to 'New Classification', new_classification_path %>
 
-<h1>Список классов</h1>
+<h2 class="page-header">Список классов</h2>
 
 <table class="table table-striped">
   <thead>
@@ -9,11 +9,11 @@
       <th>Описание</th>
       <th colspan="3"></th>
     </tr>
-      <% Hierarchy.all.each do |hierarchy| %>
-	    <th><%= hierarchy.name %></th>
-	  <% end %>
-      <th colspan="4"></th>
     <tr>
+    <% Hierarchy.all.each do |hierarchy| %>
+      <th><%= hierarchy.name %></th>
+    <% end %>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -21,7 +21,7 @@
     <% @root_class.classifications.each do |level_1_class| %>
       <tr>
         <td><%= level_1_class.name %></td>
-		<td>&nbsp;</td><td>&nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td>
         <td><%= level_1_class.description %></td>
         <td><%= link_to '', level_1_class, class: 'fa fa-eye' %></td>
         <td><%= link_to '', edit_classification_path(level_1_class), class: 'fa fa-pencil' %></td>
@@ -29,9 +29,9 @@
       </tr>
       <% level_1_class.classifications.each do |level_2_class| %>
         <tr>
-		  <td>&nbsp;</td>
+          <td>&nbsp;</td>
           <td><%= level_2_class.name %></td>
-		  <td>&nbsp;</td>
+          <td>&nbsp;</td>
           <td><%= level_2_class.description %></td>
           <td><%= link_to '', level_2_class, class: 'fa fa-eye' %></td>
           <td><%= link_to '', edit_classification_path(level_2_class), class: 'fa fa-pencil' %></td>
@@ -39,7 +39,7 @@
         </tr>
         <% level_2_class.classifications.each do |level_3_class| %>
           <tr>
-		    <td>&nbsp;</td><td>&nbsp;</td>
+            <td>&nbsp;</td><td>&nbsp;</td>
             <td><%= level_3_class.name %></td>
             <td><%= level_3_class.description %></td>
             <td><%= link_to '', level_3_class, class: 'fa fa-eye' %></td>

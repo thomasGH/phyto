@@ -9,7 +9,7 @@
       <th>Название</th>
       <th>Автор</th>
       <th>Описание</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -20,7 +20,6 @@
         <td><%= link_to composition.name, composition %></td>
         <td><%= composition.author %></td>
         <td><%= composition.description %></td>
-        <td><%= link_to '', composition, class: 'fa fa-eye' %></td>
         <td><%= link_to '', edit_composition_path(composition), class: 'fa fa-pencil' %></td>
         <td><%= link_to '', composition, method: :delete, class: 'fa fa-trash-o', data: { confirm: 'Are you sure?' } %></td>
       </tr>

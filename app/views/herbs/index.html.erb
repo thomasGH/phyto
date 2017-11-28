@@ -13,7 +13,7 @@
       <th>Активность</th>
       <th>Классификация</th>
       <th>Воздействие</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -28,7 +28,6 @@
         <td><%= herb.activity.level %></td>
         <td><%= herb.classifications.map { |item| item.name }.join(', ') %></td>
         <td><%= herb.effects.map { |item| item.name }.join(', ') %></td>
-        <td><%= link_to '', herb, class: 'fa fa-eye' %></td>
         <td><%= link_to '', edit_herb_path(herb), class: 'fa fa-pencil' %></td>
         <td><%= link_to '', herb, method: :delete, class: 'fa fa-trash-o', data: { confirm: 'Are you sure?' } %></td>
       </tr>

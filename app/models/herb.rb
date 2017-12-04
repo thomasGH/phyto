@@ -9,4 +9,6 @@ class Herb < ActiveRecord::Base
 
   has_many :classifications_herbs, dependent: :destroy
   has_many :classifications, through: :classifications_herbs
+
+  default_scope { order(name: :asc) }
 end
